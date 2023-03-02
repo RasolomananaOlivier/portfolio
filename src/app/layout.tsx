@@ -1,6 +1,7 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -8,7 +9,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body>{children}</body>
+      <body className="primary">
+        <Navbar />
+
+        {children}
+      </body>
     </html>
   );
 }

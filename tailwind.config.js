@@ -1,9 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./node_modules/flowbite-react/**/*.js",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
   darkMode: "class",
+  theme: {
+    fontSize: {
+      "3xl-sm": ["3rem", "60px"],
+      "3xl": ["4.5rem", "80px"],
+    },
+    backgroundColor: {
+      primary: "#FF00AC",
+    },
+  },
 };
