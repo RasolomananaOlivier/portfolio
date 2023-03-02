@@ -1,5 +1,12 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
+import { Inter, Roboto_Mono } from "@next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export default async function RootLayout({
   children,
@@ -7,7 +14,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable}`}>
       <head />
       <body className="primary">
         <Navbar />

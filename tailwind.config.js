@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -16,6 +18,9 @@ module.exports = {
     },
     backgroundColor: {
       primary: "#FF00AC",
+    },
+    fontFamily: {
+      sans: ["var(--font-inter)"],
     },
   },
 };

@@ -10,20 +10,14 @@ export default function SkillsTyping() {
         <span>
           <Typewriter
             options={{
-              strings: [
-                "React.js",
-                "React Native",
-                "Node.js",
-                "Designer",
-                "Full Stack",
-              ],
+              strings: ["React.js", "React Native", "Node.js", "Full Stack"],
               autoStart: true,
               loop: true,
             }}
           />
         </span>
       </span>
-      <span>Developer.</span>
+      <span>Developer & UI/UX Designer.</span>
     </>
   );
 }
