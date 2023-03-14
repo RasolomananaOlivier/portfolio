@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
-import "./globals.css";
 import { Inter, Roboto_Mono } from "@next/font/google";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,7 +16,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <head />
-      <body className="primary">
+      <body className="primary overflow-x-hidden">
         <Navbar />
 
         {children}
