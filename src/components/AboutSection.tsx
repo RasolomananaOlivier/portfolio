@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const AboutSection = () => {
   const imageRef = useRef(null);
@@ -14,14 +14,27 @@ const AboutSection = () => {
   const muiY = useTransform(scrollY, (value) => value / 3);
   const bootstrapY = useTransform(scrollY, (value) => value / 2.5);
 
+  const aboutRef = useRef(null);
+  const aboutSection = useInView(aboutRef, { margin: "-50%" });
   return (
     <section id="section" className="bg-light flex justify-center relative">
       <div className="container">
-        <div className="flex flex-col py-9 md:py-0  md:flex-row border">
+        <div className="flex flex-col py-9 md:py-0  md:flex-row ">
           <div
-            className="flex flex-col justify-start align-top md:pt-[20rem] w-[100%] md:w-[48%] "
+            className="flex flex-col justify-start align-top md:pt-[20rem] w-[100%] md:w-[48%]"
             ref={ref}
           >
+            {aboutSection && (
+              <motion.span
+                className="text-3xl font-bold text-gray-500 fixed top-[5rem] left-[20rem] z-0 opacity-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.1 }}
+                transition={{ delay: 1 }}
+              >
+                ABOUT.
+              </motion.span>
+            )}
+
             <motion.div className="flex flex-col justify-start gap-3 z-10 text-neutral-900 px-4 ">
               <motion.h2
                 className="text-neutral-900"
@@ -85,7 +98,10 @@ const AboutSection = () => {
               </motion.p>
             </motion.div>
           </div>
-          <motion.div className="hidden md:block md:h-[230vh] py-[2rem]">
+          <motion.div
+            className="hidden md:block md:h-[230vh] py-[2rem]"
+            ref={aboutRef}
+          >
             <motion.div
               initial={{ opacity: 0, y: 200, scale: 0.6 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
