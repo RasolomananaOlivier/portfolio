@@ -35,7 +35,7 @@ const AboutSection = () => {
               </motion.span>
             )}
 
-            <motion.div className="flex flex-col justify-start gap-3 z-10 text-neutral-900 px-4 ">
+            <motion.div className="flex flex-col justify-start gap-3 z-10 text-neutral-900 px-3 py-10">
               <motion.h2
                 className="text-neutral-900"
                 initial={{ opacity: 0, y: 100 }}

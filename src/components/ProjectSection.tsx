@@ -2,18 +2,23 @@
 
 import Image from "next/image";
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 export default function ProjectSection() {
   const ref = useRef(null);
+  const { scrollY } = useScroll();
+
+  const y = useTransform(scrollY, (value) => value / 15);
+  const reactY = useTransform(scrollY, (value) => value / 10);
+  const mongodbY = useTransform(scrollY, (value) => value / 5);
 
   const projectSection = useInView(ref, { margin: "-50%" });
   return (
     <section id="project" className="flex justify-center relative">
-      <div className="container ">
+      <div className="container">
         <div className="flex text-white py-7 relative">
-          <div className="flex flex-col flex-2">
-            <motion.h5
+          <div className="flex flex-col flex-2 px-3 md:px-0 ">
+            {/* <motion.h5
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ type: "tween" }}
@@ -21,16 +26,16 @@ export default function ProjectSection() {
               See the list of my
             </motion.h5>
             <motion.h1
-              className="text-3xl text-gradient font-bold"
+              className="text-3xl-sm md:text-3xl text-gradient font-bold"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ type: "tween", delay: 0.3 }}
             >
               Featured Projects.
-            </motion.h1>
-            <div className="h-[335vh] py-10 relative" ref={ref}>
+            </motion.h1> */}
+            <div className="h-[335vh] py-10" ref={ref}>
               <motion.div
-                className="sticky top-20 "
+                className="hidden md:inline-block md:sticky md:top-20"
                 initial={{ opacity: 0, y: 50, scale: 0.7 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ type: "tween", delay: 0.3 }}
@@ -44,9 +49,9 @@ export default function ProjectSection() {
                 />
               </motion.div>
 
-              <div className="flex gap-4">
+              <div className="flex flex-col md:flex-row gap-4 relative">
                 <motion.div
-                  className="shadow-lg z-10 ml-3"
+                  className="z-10 md:ml-3 relative"
                   initial={{ opacity: 0, y: 50, scale: 0.8 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ type: "tween", delay: 0.3 }}
@@ -59,8 +64,75 @@ export default function ProjectSection() {
                     className="rounded-xl"
                   />
                 </motion.div>
+                <motion.div
+                  style={{ y }}
+                  className="absolute top-14 left-5 z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                >
+                  <Image
+                    src="/mui.png"
+                    alt=""
+                    width={80}
+                    height={80}
+                    className="relative"
 
-                <div className="flex flex-col flex-1 px-6 gap-4">
+                    // ref={imageRef}
+                    // className="rounded-xl md:sticky top-[5rem]"
+                  />
+                </motion.div>
+                <motion.div
+                  style={{ y: reactY }}
+                  className="absolute -top-[80%] left-[42%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                >
+                  <Image
+                    src="/react.png"
+                    alt=""
+                    width={80}
+                    height={80}
+                    className="relative"
+
+                    // ref={imageRef}
+                    // className="rounded-xl md:sticky top-[5rem]"
+                  />
+                </motion.div>
+                <motion.div
+                  style={{ y: reactY }}
+                  className="absolute top-[10%] left-[28%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                >
+                  <Image
+                    src="/nodejs.png"
+                    alt=""
+                    width={80}
+                    height={80}
+                    className="relative"
+
+                    // ref={imageRef}
+                    // className="rounded-xl md:sticky top-[5rem]"
+                  />
+                </motion.div>
+                <motion.div
+                  style={{ y: mongodbY }}
+                  className="absolute -top-[180%] left-[18%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                >
+                  <Image
+                    src="/mongodb.png"
+                    alt=""
+                    width={80}
+                    height={80}
+                    className="relative"
+
+                    // ref={imageRef}
+                    // className="rounded-xl md:sticky top-[5rem]"
+                  />
+                </motion.div>
+                <div className="flex flex-col flex-1 md:px-6 gap-4 mb-16 md:mb-0 relative">
                   <motion.h5
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -76,6 +148,9 @@ export default function ProjectSection() {
                   >
                     QuickTalks.
                   </motion.h2>
+                  <span className="md:hidden text-3xl font-bold text-gray-200 absolute top-4 left-5 z-30 opacity-10 ">
+                    QUICKTALKS
+                  </span>
                   <motion.p
                     className="mb-3"
                     initial={{ opacity: 0, y: 50 }}
@@ -88,7 +163,7 @@ export default function ProjectSection() {
                     voluptatibus quae rerum pariatur?
                   </motion.p>
                   <motion.div
-                    className="flex flex-wrap gap-2"
+                    className="flex flex-wrap gap-2 mb-3 "
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ type: "tween", delay: 0.3 }}
@@ -113,9 +188,9 @@ export default function ProjectSection() {
                 </div>
               </div>
 
-              <div className="flex gap-4 my-[20rem]">
+              <div className="flex flex-col md:flex-row gap-4 mb-16 md:my-[20rem] relative">
                 <motion.div
-                  className="shadow-lg z-10 ml-3"
+                  className="shadow-lg z-10 md:ml-3"
                   initial={{ opacity: 0, y: 50, scale: 0.8 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ type: "tween", delay: 0.3 }}
@@ -129,7 +204,7 @@ export default function ProjectSection() {
                   />
                 </motion.div>
 
-                <div className="flex flex-col flex-1 px-6 gap-4">
+                <div className="flex flex-col flex-1 md:px-6 gap-4 relative">
                   <motion.h5
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -143,8 +218,11 @@ export default function ProjectSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ type: "tween", delay: 0.2 }}
                   >
-                    QuickTalks.
+                    TemplateHub.
                   </motion.h2>
+                  <span className="md:hidden text-3xl font-bold text-gray-200 absolute top-4 left-5 z-30 opacity-10 ">
+                    TEMPLATEHUB.
+                  </span>
                   <motion.p
                     className="mb-3"
                     initial={{ opacity: 0, y: 50 }}
@@ -157,7 +235,7 @@ export default function ProjectSection() {
                     voluptatibus quae rerum pariatur?
                   </motion.p>
                   <motion.div
-                    className="flex flex-wrap gap-2"
+                    className="flex flex-wrap gap-2 mb-3"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ type: "tween", delay: 0.3 }}
@@ -182,9 +260,9 @@ export default function ProjectSection() {
                 </div>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex flex-col md:flex-row gap-4 relative">
                 <motion.div
-                  className="shadow-lg z-10 ml-3"
+                  className="shadow-lg z-10 md:ml-3"
                   initial={{ opacity: 0, y: 50, scale: 0.8 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ type: "tween", delay: 0.3 }}
@@ -198,7 +276,7 @@ export default function ProjectSection() {
                   />
                 </motion.div>
 
-                <div className="flex flex-col flex-1 px-6 gap-4">
+                <div className="flex flex-col flex-1 md:px-6 gap-4 mb-16 md:mb-0 relative">
                   <motion.h5
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -212,8 +290,11 @@ export default function ProjectSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ type: "tween", delay: 0.2 }}
                   >
-                    QuickTalks.
+                    ScreenSurfer.
                   </motion.h2>
+                  <span className="md:hidden text-3xl font-bold text-gray-200 absolute top-4 left-5 z-30 opacity-10 ">
+                    ScreenSurfer.
+                  </span>
                   <motion.p
                     className="mb-3"
                     initial={{ opacity: 0, y: 50 }}
@@ -226,7 +307,7 @@ export default function ProjectSection() {
                     voluptatibus quae rerum pariatur?
                   </motion.p>
                   <motion.div
-                    className="flex flex-wrap gap-2"
+                    className="flex flex-wrap gap-2 mb-3"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ type: "tween", delay: 0.3 }}
@@ -253,7 +334,7 @@ export default function ProjectSection() {
             </div>
           </div>
           {projectSection && (
-            <span className="text-3xl font-bold text-gray-200 fixed top-[5rem] right-10 z-0 opacity-10">
+            <span className="hidden md:block text-3xl font-bold text-gray-200 fixed top-[5rem] right-10 z-0 opacity-10">
               PROJECTS.
             </span>
           )}
