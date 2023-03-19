@@ -6,7 +6,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <AboutSection />
-      {/* <section id="about" className="back-white h-[20rem] relative"></section> */}
+      <section id="about" className="back-white h-[100rem] relative"></section>
     </main>
   );
 }
