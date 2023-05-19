@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import HeroDescription from "../app/HeroDescription";
-import ReactLogo from "./AnimatedLogo/ReactLogo";
-import AnimatedLogo from "./AnimatedLogo";
+import HeroDescription from "../../app/HeroDescription";
+import ReactLogo from "../AnimatedLogo/ReactLogo";
+import AnimatedLogo from "../AnimatedLogo";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="flex justify-center px-5 sm:px-16 ">
+    <section id="hero" className="flex justify-center px-3 sm:px-16">
       <div className="container flex">
         <div className="py-[6rem] flex-1">
           <HeroDescription />

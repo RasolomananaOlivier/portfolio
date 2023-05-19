@@ -8,9 +8,9 @@ interface Props {
 
 const ContactSection: React.FC<Props> = ({}) => {
   return (
-    <section className="bg-light px-3 md:px-8">
+    <section className="bg-slate-50 px-3 md:px-8">
       <div className="container py-10 flex flex-col gap-5">
-        <h1 className="font-bold text-3xl-sm md:text-6xl text-gradient h-full py-1">
+        <h1 className="font-bold text-5xl md:text-7xl text-gradient h-full py-1">
           Let's <br /> get in touched
         </h1>
         <h3 className="text-base">I am always interested about</h3>

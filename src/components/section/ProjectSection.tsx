@@ -2,28 +2,24 @@
 
 import Image from "next/image";
 import React, { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import ProjectCard from "./ProjectCard";
-import { Project } from "@/utils/types";
-import ProjectList from "./ProjectList";
+import { motion, useInView } from "framer-motion";
+import ProjectList from "../ProjectList";
 
 export default function ProjectSection() {
   const ref = useRef(null);
-  const { scrollY } = useScroll();
-
-  const y = useTransform(scrollY, (value) => value / 15);
-  const reactY = useTransform(scrollY, (value) => value / 10);
-  const mongodbY = useTransform(scrollY, (value) => value / 5);
-
   const projectSection = useInView(ref, { margin: "-50%" });
+
   return (
-    <section id="project" className="flex justify-center relative">
+    <section
+      id="project"
+      className="flex justify-center relative w-[100vw]  md:w-auto overflow-x-hidden md:overflow-x-visible"
+    >
       <div className="container">
         <div className="flex text-white py-7 relative">
           <div className="flex flex-col flex-2 px-3 md:px-0 ">
-            <div className="py-10" ref={ref}>
+            <div className="py-10 relative" ref={ref}>
               <motion.div
-                className="hidden md:inline-block md:sticky md:top-20"
+                className="hidden md:inline-block md:sticky md:top-10"
                 initial={{ opacity: 0, y: 50, scale: 0.7 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ type: "tween", delay: 0.3 }}
@@ -41,7 +37,7 @@ export default function ProjectSection() {
             </div>
           </div>
           {projectSection && (
-            <span className="hidden md:block text-3xl font-bold text-gray-200 fixed top-[5rem] right-10 z-0 opacity-10">
+            <span className="hidden md:block text-6xl font-bold text-gray-200 fixed top-[5rem] right-10 z-0 opacity-10">
               PROJECTS.
             </span>
           )}
