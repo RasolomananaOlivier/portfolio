@@ -4,83 +4,18 @@ import Image from "next/image";
 import React, { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import ProjectCardImage from "./ProjectCardImage";
+import { Project } from "@/utils/types";
+import ProjectCardTags from "./ProjectCardTags";
 
 interface Props {
-  name: string;
-  about: string;
-  imageUrl: string;
-  description: string;
-  tags: string[];
-  githubRepo: string;
-  liveDemo: string;
+  project: Project;
 }
 
-const ProjectCard: React.FC<Props> = ({ imageUrl }) => {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, (value) => value / 15);
-  const reactY = useTransform(scrollY, (value) => value / 10);
-  const mongodbY = useTransform(scrollY, (value) => value / 5);
-
+const ProjectCard: React.FC<Props> = ({ project }) => {
   return (
-    <div>
-      <ProjectCardImage src={imageUrl} />
+    <div className="flex relative">
+      <ProjectCardImage src={project.imageUrl} />
 
-      <motion.div
-        style={{ y }}
-        className="hidden md:block absolute top-14 left-5 z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-      >
-        <Image
-          src="/mui.png"
-          alt=""
-          width={80}
-          height={80}
-          className="relative"
-        />
-      </motion.div>
-      <motion.div
-        style={{ y: reactY }}
-        className="hidden md:block absolute -top-[80%] left-[42%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-      >
-        <Image
-          src="/react.png"
-          alt=""
-          width={80}
-          height={80}
-          className="relative"
-        />
-      </motion.div>
-      <motion.div
-        style={{ y: reactY }}
-        className="hidden md:block absolute top-[10%] left-[28%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-      >
-        <Image
-          src="/nodejs.png"
-          alt=""
-          width={80}
-          height={80}
-          className="relative"
-        />
-      </motion.div>
-      <motion.div
-        style={{ y: mongodbY }}
-        className="hidden md:block absolute -top-[180%] left-[18%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-      >
-        <Image
-          src="/mongodb.png"
-          alt=""
-          width={80}
-          height={80}
-          className="relative"
-        />
-      </motion.div>
       <div className="flex flex-col flex-1 md:px-6 gap-4 mb-16 md:mb-0 relative">
         <motion.h5
           initial={{ opacity: 0, y: 50 }}
@@ -131,10 +66,11 @@ const ProjectCard: React.FC<Props> = ({ imageUrl }) => {
             type="button"
             className="text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border border-[#FF00AC]"
           >
-            View
+            View demo
           </button>
         </motion.div>
       </div>
+      <ProjectCardTags tags={["1", "2", "3", "4"]} />
     </div>
   );
 };

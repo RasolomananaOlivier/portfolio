@@ -17,29 +17,29 @@ const ProjectCardTags: React.FC<Props> = ({ tags }) => {
   const tagsPropreties = [
     {
       class:
-        "hidden md:block absolute top-14 left-5 z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg",
+        "hidden md:block absolute -top-10 left-5 z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg",
       src: "/mui.png",
       alt: "",
       y,
     },
     {
       class:
-        "hidden md:block absolute -top-[80%] left-[42%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg",
-      src: "/mui.png",
+        "hidden md:block absolute top-[17rem] left-[37%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg",
+      src: "/firebase.png",
       alt: "",
       y: y2,
     },
     {
       class:
-        "hidden md:block absolute top-[10%] left-[28%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg",
-      src: "/mui.png",
+        "hidden md:block absolute top-0 left-[30%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg",
+      src: "/mongodb.png",
       alt: "",
       y: y2,
     },
     {
       class:
-        "hidden md:block absolute -top-[180%] left-[18%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg",
-      src: "/mui.png",
+        "hidden md:block absolute bottom-0 left-[10%] z-10  bg-light w-[4rem] h-[4rem] rounded-full p-2 shadow-lg",
+      src: "/react.png",
       alt: "",
       y: y3,
     },
@@ -50,13 +50,13 @@ const ProjectCardTags: React.FC<Props> = ({ tags }) => {
       {tags.map((tag, index) => (
         <motion.div
           key={index}
-          style={{ y: tagsPropreties[index].y }}
+          // style={{ y: tagsPropreties[index].y }}
           className={tagsPropreties[index].class}
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
         >
           <Image
-            src="/mui.png"
+            src={tagsPropreties[index].src}
             alt={tagsPropreties[index].alt}
             width={80}
             height={80}
