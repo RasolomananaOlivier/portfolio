@@ -17,16 +17,16 @@ const AboutSection = () => {
   const aboutRef = useRef(null);
   const aboutSection = useInView(aboutRef, { margin: "-50%" });
   return (
-    <section id="section" className="bg-light flex justify-center relative">
+    <section id="section" className="bg-slate-50 flex justify-center relative">
       <div className="container">
         <div className="flex flex-col py-9 md:py-0  md:flex-row ">
           <div
-            className="flex flex-col justify-start align-top md:pt-[20rem] w-[100%] md:w-[48%]"
+            className="flex flex-col justify-start align-top md:pt-[20rem] md:pb-[10rem] w-[100%] md:w-[48%]"
             ref={ref}
           >
             {aboutSection && (
               <motion.span
-                className="text-3xl font-bold text-gray-500 fixed top-[5rem] left-[20rem] z-0 opacity-10"
+                className="text-6xl font-bold text-gray-500 fixed top-[5rem] left-[20rem] z-0 opacity-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.1 }}
                 transition={{ delay: 1 }}
@@ -45,7 +45,7 @@ const AboutSection = () => {
                 I am <span className="font-bold ">Olivier</span>
               </motion.h2>
               <motion.h1
-                className="font-bold text-3xl-sm md:text-3xl text-gradient w-full "
+                className="font-bold text-4xl md:text-7xl text-gradient w-full "
                 initial={{ opacity: 0, y: 100 }}
                 transition={{ type: "tween", delay: 0.1, duration: 0.5 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ const AboutSection = () => {
                 I work on every step of
               </motion.h2>
               <motion.h1
-                className="font-bold text-3xl-sm md:text-3xl text-gradient w-full "
+                className="font-bold text-4xl md:text-7xl text-gradient w-full"
                 initial={{ opacity: 0, y: 100 }}
                 transition={{ type: "tween", delay: 0.1, duration: 0.5 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ const AboutSection = () => {
             </motion.div>
           </div>
           <motion.div
-            className="hidden md:block md:h-[230vh] py-[2rem]"
+            className="hidden md:block md:h-[250vh] py-[2rem]"
             ref={aboutRef}
           >
             <motion.div
