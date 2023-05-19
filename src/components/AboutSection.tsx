@@ -21,7 +21,7 @@ const AboutSection = () => {
       <div className="container">
         <div className="flex flex-col py-9 md:py-0  md:flex-row ">
           <div
-            className="flex flex-col justify-start align-top md:pt-[20rem] w-[100%] md:w-[48%]"
+            className="flex flex-col justify-start align-top md:pt-[20rem] md:pb-[10rem] w-[100%] md:w-[48%] border"
             ref={ref}
           >
             {aboutSection && (
@@ -99,7 +99,7 @@ const AboutSection = () => {
             </motion.div>
           </div>
           <motion.div
-            className="hidden md:block md:h-[230vh] py-[2rem]"
+            className="hidden md:block md:h-[250vh] py-[2rem]"
             ref={aboutRef}
           >
             <motion.div

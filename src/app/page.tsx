@@ -8,7 +8,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ProjectSection />
-      <section id="about" className="back-white h-[100rem] relative"></section>
+      <section id="about" className="back-white relative"></section>
     </main>
   );
 }
