@@ -1,6 +1,7 @@
 "use client";
 
-import React, { PropsWithChildren } from "react";
+import { useInView } from "framer-motion";
+import React, { PropsWithChildren, useEffect, useRef } from "react";
 
 interface INavbarLinkProps extends PropsWithChildren {
   href: string;
@@ -14,10 +15,23 @@ export default function NavbarLink({ href, children }: INavbarLinkProps) {
     }
   };
 
+  const elementRef = useRef(null);
+  const isInView = useInView(elementRef);
+
+  useEffect(() => {
+    const element = document.getElementById(href);
+    // @ts-ignore
+    elementRef.current = element;
+  }, []);
+
   return (
     <button
       onClick={handleClickScroll}
-      className="block py-2 pl-3 pr-4 text-white md:p-0 font-bold text-md"
+      className={
+        isInView
+          ? "block py-2 pl-3 pr-4 text-white md:pt-2  text-md font-bold"
+          : "block py-2 pl-3 pr-4 text-white md:pt-2  text-md"
+      }
     >
       {children}
     </button>

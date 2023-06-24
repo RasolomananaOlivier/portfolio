@@ -18,7 +18,6 @@ export default async function RootLayout({
       <head />
       <body className="primary overflow-x-hidden">
         <Navbar />
-
         {children}
       </body>
     </html>

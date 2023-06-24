@@ -6,7 +6,7 @@ import AnimatedLogo from "../AnimatedLogo";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="flex justify-center px-3 ">
+    <section id="hero" className="flex justify-center px-3 mt-[7rem]">
       <div className="container flex ">
         <div className="py-[6rem] flex-1">
           <HeroDescription />
