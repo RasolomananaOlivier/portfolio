@@ -10,10 +10,7 @@ export default function ProjectSection() {
   const projectSection = useInView(ref, { margin: "-50%" });
 
   return (
-    <section
-      id="project"
-      className="flex justify-center relative w-[100vw]  md:w-auto overflow-x-hidden md:overflow-x-visible"
-    >
+    <section className="flex justify-center relative w-[100vw]  md:w-auto overflow-x-hidden md:overflow-x-visible">
       <div className="container">
         <div className="flex text-white py-7 relative">
           <div className="flex flex-col flex-2 px-3 md:px-0 ">

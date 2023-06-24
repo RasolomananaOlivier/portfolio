@@ -4,8 +4,8 @@ import NavbarLink from "./NavbarLink";
 
 export default function Navbar() {
   return (
-    <nav className=" py-2.5 rounded flex justify-center">
-      <div className="container flex flex-wrap items-center justify-between ">
+    <nav className="py-2.5 rounded flex justify-center">
+      <div className="container flex flex-wrap items-center justify-between">
         <a href="https://flowbite.com/" className="flex items-center">
           <span className="text-gradient self-center text-[1.3rem] font-semibold whitespace-nowrap text-white">
             Olivier.

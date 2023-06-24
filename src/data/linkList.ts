@@ -3,8 +3,8 @@ type LinkList = {
   label: string;
 };
 export const linkList: LinkList[] = [
-  { url: "/home", label: "Home" },
-  { url: "/about", label: "About" },
-  { url: "/project", label: "Project" },
-  { url: "/other", label: "Other" },
+  { url: "hero", label: "Home" },
+  { url: "about", label: "About" },
+  { url: "project", label: "Projects" },
+  { url: "contact", label: "Contact" },
 ];

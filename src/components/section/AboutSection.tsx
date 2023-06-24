@@ -17,7 +17,7 @@ const AboutSection = () => {
   const aboutRef = useRef(null);
   const aboutSection = useInView(aboutRef, { margin: "-50%" });
   return (
-    <section id="section" className="bg-slate-50 flex justify-center relative">
+    <section className="bg-slate-50 flex justify-center relative">
       <div className="container">
         <div className="flex flex-col py-9 md:py-0  md:flex-row ">
           <div
@@ -34,8 +34,11 @@ const AboutSection = () => {
                 ABOUT.
               </motion.span>
             )}
-
-            <motion.div className="flex flex-col justify-start gap-3 z-10 text-neutral-900 px-3 py-10">
+            <div></div>
+            <motion.div
+              className="flex flex-col justify-start gap-3 z-10 text-neutral-900 px-3 py-10"
+              id="about"
+            >
               <motion.h2
                 className="text-neutral-900"
                 initial={{ opacity: 0, y: 100 }}

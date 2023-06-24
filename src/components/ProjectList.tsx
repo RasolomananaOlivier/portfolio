@@ -15,7 +15,10 @@ const project: Project = {
 };
 const ProjectList: React.FC<Props> = ({}) => {
   return (
-    <div className="flex flex-col gap-5 md:gap-[25rem] pb-0 md:pb-[5rem]">
+    <div
+      className="flex flex-col gap-5 md:gap-[25rem] pb-0 md:pb-[5rem]"
+      id="project"
+    >
       {[1, 2, 3].map((i) => (
         <ProjectCard project={project} />
       ))}
