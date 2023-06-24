@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
-import { Inter, Roboto_Mono } from "@next/font/google";
+import { Roboto } from "@next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const inter = Roboto({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-inter",
   display: "swap",
 });
 
@@ -14,7 +14,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable}`}>
+    <html lang="en" className={`${inter.className}`}>
       <head />
       <body className="primary overflow-x-hidden">
         <Navbar />
