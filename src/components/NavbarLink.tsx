@@ -22,7 +22,7 @@ export default function NavbarLink({ href, children }: INavbarLinkProps) {
     const element = document.getElementById(href);
     // @ts-ignore
     elementRef.current = element;
-  }, []);
+  }, [href]);
 
   return (
     <button

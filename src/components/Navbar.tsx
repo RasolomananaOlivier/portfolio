@@ -5,10 +5,18 @@ import React, { useEffect, useState } from "react";
 import NavbarLink from "./NavbarLink";
 import { debounce } from "@/utils/helpers";
 
+import { BsMenuApp, BsMenuButton } from "react-icons/bs";
+import { AiOutlineClose, AiOutlineHome, AiOutlineMenu } from "react-icons/ai";
+import Drawer from "./Drawer";
+
 export default function Navbar() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-  // new:
   const [visible, setVisible] = useState(true);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleDrawer = () => {
+    setIsOpen((prevState) => !prevState);
+  };
 
   // @ts-ignore
   const handleScroll = debounce(() => {
@@ -53,13 +61,14 @@ export default function Navbar() {
         <button
           data-collapse-toggle="navbar-default"
           type="button"
-          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 ml-3 text-sm text-slate-50 focus:text-slate-950 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded="false"
+          onClick={toggleDrawer}
         >
-          <span className="sr-only">Open main menu</span>
-          logo
+          <AiOutlineMenu />
         </button>
+
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="flex flex-col mt-4  rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             {linkList.map((link) => (
@@ -81,6 +90,8 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
+
+      <Drawer isOpen={isOpen} toggleDrawer={toggleDrawer} />
     </nav>
   );
 }
