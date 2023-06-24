@@ -22,19 +22,48 @@ const ContactSection: React.FC<Props> = ({}) => {
             "Full Stack developmemt",
             "UI/UX Design",
           ].map((s) => (
-            <div className="border-2 border-purple-500 rounded-full py-4 px-5 h-[30px] flex justify-center items-center cursor-pointer">
+            <a
+              href={`mailto:herimanitraolivier@gmail.com?subject=${s}`}
+              target="_blank"
+              className="border-2 border-purple-500 rounded-full py-4 px-5 h-[30px] flex justify-center items-center cursor-pointer"
+            >
               {s}
-            </div>
+            </a>
           ))}
         </div>
       </div>
       <hr />
 
       <div className="flex gap-5 pt-4 pb-10">
-        <AiFillGithub size="34" color="gray" />
-        <AiOutlineTwitter size="34" color="gray" />
-        <FaLinkedinIn size="30" color="gray" />
-        <BsFacebook size="30" color="gray" />
+        <a
+          href="https://github.com/RasolomananaOlivier/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <AiFillGithub size="28" color="gray" />
+        </a>
+        <a
+          href="https://twitter.com/OlivierFullDev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <AiOutlineTwitter size="28" color="gray" />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/rasolomanana-herimanitra-olivier/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaLinkedinIn size="28" color="gray" />
+        </a>
+        <a
+          href="https://www.facebook.com/olivier.rasolomananaherimanitra/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <BsFacebook size="26" color="gray" />
+        </a>
       </div>
     </section>
   );
